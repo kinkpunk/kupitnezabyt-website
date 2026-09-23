@@ -1,0 +1,90 @@
+---
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import Features from '../components/Features.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Problem from '../components/Problem.astro';
+import PwaBlock from '../components/PwaBlock.astro';
+import Screenshot from '../components/Screenshot.astro';
+import Steps from '../components/Steps.astro';
+import UseCases from '../components/UseCases.astro';
+import { screenshots } from '../content/screenshots';
+import { pageMetadata } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroShot = screenshots.find((shot) => shot.id === 'hero');
+---
+
+<BaseLayout {...pageMetadata.home} webSiteJsonLd>
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1>Помнить о нужном — проще.</h1>
+          <p>
+            Отмечайте, что заканчивается, и собирайте покупки без бесконечных
+            заметок и попыток всё удержать в голове.
+          </p>
+          <div class="hero__actions">
+            <Cta label="Открыть приложение" placement="hero" />
+            <a class="button button--secondary" href="/install">Как установить</a>
+          </div>
+          <p class="hero__note">
+            Работает в браузере и устанавливается на домашний экран.
+          </p>
+        </div>
+        {
+          heroShot && (
+            <figure class="hero__shot">
+              <div class="hero__frame">
+                <Screenshot
+                  src={heroShot.src}
+                  webpSrc={heroShot.webpSrc}
+                  alt={heroShot.alt}
+                  width={heroShot.width}
+                  height={heroShot.height}
+                  loading="eager"
+                />
+              </div>
+            </figure>
+          )
+        }
+      </div>
+    </section>
+
+    <Problem />
+    <Steps />
+    <Features />
+
+    {
+      screenshots.length > 0 && (
+        <section class="section gallery" aria-labelledby="gallery-title">
+          <div class="container">
+            <h2 id="gallery-title">Понятно с первого взгляда.</h2>
+            <ul class="gallery__list">
+              {screenshots.map((shot) => (
+                <li class="gallery__item">
+                  <figure>
+                    <Screenshot
+                      src={shot.src}
+                      webpSrc={shot.webpSrc}
+                      alt={shot.alt}
+                      width={shot.width}
+                      height={shot.height}
+                    />
+                    {shot.caption && <figcaption>{shot.caption}</figcaption>}
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )
+    }
+
+    <UseCases />
+    <PwaBlock />
+    <FinalCta />
+    <Faq />
+  </main>
+</BaseLayout>

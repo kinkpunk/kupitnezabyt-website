@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageMetadata } from '../content/site';
+
+const { title, description } = pageMetadata.notFound;
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content">
+    <section class="not-found">
+      <div class="container">
+        <h1>Страница не найдена</h1>
+        <p>Запрошенная страница не существует. Возможно, вы ошиблись в адресе или страница была удалена.</p>
+        <a href="/" class="button button--primary">На главную</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

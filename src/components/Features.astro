@@ -1,0 +1,48 @@
+---
+const features = [
+  {
+    title: 'Статусы запасов',
+    text: 'Быстро отмечайте, что есть, заканчивается или пора купить.',
+  },
+  {
+    title: 'Список покупок',
+    text: 'Формируется из отмеченных товаров.',
+  },
+  {
+    title: 'Напоминания о проверке',
+    text: 'Вернитесь к запасам в удобный момент.',
+  },
+  {
+    title: 'Категории и наборы',
+    text: 'Объединяйте товары по жизни, а не по магазину.',
+  },
+  {
+    title: 'Совместный список',
+    text: 'Приглашайте близких в общий список.',
+    beta: true,
+  },
+  {
+    title: 'Поиск и экспорт',
+    text: 'Находите товары и забирайте свои данные.',
+  },
+];
+---
+
+<section class="section features" aria-labelledby="features-title">
+  <div class="container">
+    <h2 id="features-title">Всё нужное для регулярных покупок.</h2>
+    <ul class="features__list">
+      {
+        features.map((feature) => (
+          <li class="features__item">
+            <h3>
+              {feature.title}
+              {feature.beta && <span class="badge">beta</span>}
+            </h3>
+            <p>{feature.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

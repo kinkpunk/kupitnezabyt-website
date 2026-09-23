@@ -1,0 +1,47 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  webpSrc?: string;
+  srcSet?: string;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  webpSrc,
+  srcSet,
+  sizes,
+  loading = 'lazy',
+  class: className,
+} = Astro.props;
+
+const imageProps = {
+  src,
+  alt,
+  width,
+  height,
+  loading,
+  decoding: 'async' as const,
+  ...(srcSet ? { srcset: srcSet } : {}),
+  ...(sizes ? { sizes } : {}),
+};
+---
+
+{
+  webpSrc ? (
+    <picture>
+      <source srcset={srcSet ?? webpSrc} type="image/webp" sizes={sizes} />
+      <img {...imageProps} class={className} />
+    </picture>
+  ) : (
+    <img {...imageProps} class={className} />
+  )
+}

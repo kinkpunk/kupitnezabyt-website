@@ -1,0 +1,57 @@
+---
+import { screenshots } from '../content/screenshots';
+import Screenshot from './Screenshot.astro';
+
+const steps = [
+  {
+    id: 'step-1',
+    title: 'Добавьте привычные товары',
+    text: 'Например: кофе, рис, шампунь.',
+  },
+  {
+    id: 'step-2',
+    title: 'Отмечайте запас одним касанием',
+    text: '«Есть», «Мало» или «Купить».',
+  },
+  {
+    id: 'step-3',
+    title: 'Откройте готовый список',
+    text: 'Товары со статусом «Купить» попадут туда сами.',
+  },
+];
+
+const shotById = new Map(screenshots.map((shot) => [shot.id, shot]));
+---
+
+<section class="section steps" aria-labelledby="steps-title">
+  <div class="container">
+    <h2 id="steps-title">Три шага — без сложного учёта.</h2>
+    <ol class="steps__list">
+      {
+        steps.map((step, index) => {
+          const shot = shotById.get(step.id);
+          return (
+            <li class="steps__item">
+              <span class="steps__number" aria-hidden="true">
+                {index + 1}
+              </span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+              {shot && (
+                <figure class="steps__shot">
+                  <Screenshot
+                    src={shot.src}
+                    webpSrc={shot.webpSrc}
+                    alt={shot.alt}
+                    width={shot.width}
+                    height={shot.height}
+                  />
+                </figure>
+              )}
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>

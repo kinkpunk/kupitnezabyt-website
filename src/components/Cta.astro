@@ -1,0 +1,15 @@
+---
+import { buildAppUrl, type CtaPlacement } from '../lib/app-url';
+
+interface Props {
+  label: string;
+  placement: CtaPlacement;
+  class?: string;
+}
+
+const { label, placement, class: className } = Astro.props;
+---
+
+<a class:list={['button', 'button--primary', className]} href={buildAppUrl(placement)}>
+  {label}
+</a>

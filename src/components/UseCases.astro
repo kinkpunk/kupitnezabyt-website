@@ -1,0 +1,27 @@
+---
+const useCases = [
+  { name: 'Еда', example: 'кофе, крупы, специи' },
+  { name: 'Аптека', example: 'витамины и необходимые лекарства' },
+  { name: 'Косметика', example: 'шампунь, крем, средства гигиены' },
+  { name: 'Дом', example: 'бытовая химия и расходники' },
+  { name: 'Питомцы', example: 'корм и наполнитель' },
+  { name: 'Авто', example: 'масло, щётки, расходные материалы' },
+];
+---
+
+<section class="section use-cases" aria-labelledby="use-cases-title">
+  <div class="container">
+    <h2 id="use-cases-title">Для того, что заканчивается регулярно.</h2>
+    <ul class="use-cases__list">
+      {
+        useCases.map((useCase) => (
+          <li class="use-cases__item">
+            <h3>{useCase.name}</h3>
+            <p>{useCase.example}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="use-cases__note">Примеры категорий, а не каталог товаров.</p>
+  </div>
+</section>

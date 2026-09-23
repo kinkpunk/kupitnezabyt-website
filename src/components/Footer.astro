@@ -1,0 +1,24 @@
+---
+import { site } from '../content/site';
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a class="site-logo" href="/">{site.name}</a>
+      <p>Спокойный способ помнить о регулярно заканчивающихся вещах.</p>
+    </div>
+
+    <nav aria-label="Навигация в подвале">
+      <a href="/install">Как установить</a>
+      <a href="/privacy">Политика конфиденциальности</a>
+      <a href="/terms">Условия использования</a>
+    </nav>
+
+    <address>
+      <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+      <a href={site.contact.telegramUrl}>Telegram {site.contact.telegram}</a>
+    </address>
+  </div>
+  <div class="container site-footer__copyright">© {new Date().getFullYear()} {site.name}</div>
+</footer>

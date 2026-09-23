@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cta from '../components/Cta.astro';
+import { pageMetadata } from '../content/site';
+
+const { title, description } = pageMetadata.install;
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content">
+    <section class="install">
+      <div class="container">
+        <h1>Установите kupitnezabyt на домашний экран.</h1>
+        <Cta label="Открыть приложение" placement="install" class="install__cta" />
+        <p class="install__note">Сайт работает в мобильном браузере. При желании добавьте его на домашний экран — без загрузки из магазина приложений.</p>
+
+        <details class="install-tab">
+          <summary><span class="sr-only">Открыть инструкцию для iPhone/iPad</span><span aria-hidden="true">iPhone и iPad (Safari)</span></summary>
+          <ol class="install-steps">
+            <li>Откройте приложение в Safari.</li>
+            <li>Нажмите кнопку «Поделиться».</li>
+            <li>Выберите «На экран «Домой»».</li>
+            <li>Подтвердите «Добавить».</li>
+          </ol>
+        </details>
+
+        <details class="install-tab">
+          <summary><span class="sr-only">Открыть инструкцию для Android</span><span aria-hidden="true">Android (Chrome)</span></summary>
+          <ol class="install-steps">
+            <li>Откройте приложение в Chrome.</li>
+            <li>Откройте меню браузера.</li>
+            <li>Выберите «Установить приложение» или «Добавить на главный экран».</li>
+            <li>Подтвердите действие.</li>
+          </ol>
+        </details>
+
+        <details class="install-tab">
+          <summary><span class="sr-only">Открыть инструкцию для desktop</span><span aria-hidden="true">Desktop</span></summary>
+          <p>Откройте приложение в современном браузере. Если браузер показывает кнопку установки, используйте её; иначе продолжайте пользоваться сайтом во вкладке.</p>
+          <p>Названия элементов браузера могут меняться. Инструкции проверяются перед релизом на актуальных iOS Safari и Android Chrome.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
