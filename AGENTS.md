@@ -50,7 +50,10 @@ application repository.
     styles/      # tokens, global and page styles
   public/
     images/
-    favicon.svg
+    favicon.png
+    apple-touch-icon.png
+    logo-512.png
+    logo-512.webp
     robots.txt
   ```
 

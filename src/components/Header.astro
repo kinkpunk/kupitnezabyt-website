@@ -4,7 +4,13 @@ import Cta from './Cta.astro';
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-logo" href="/" aria-label="kupitnezabyt — на главную">kupitnezabyt</a>
+    <a class="site-logo" href="/" aria-label="kupitnezabyt — на главную">
+      <picture>
+        <source srcset="/logo-512.webp" type="image/webp" />
+        <img src="/logo-512.png" width="32" height="32" alt="" aria-hidden="true" />
+      </picture>
+      <span>kupitnezabyt</span>
+    </a>
 
     <nav class="site-nav" aria-label="Основная навигация">
       <a href="/install">Как установить</a>

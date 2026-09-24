@@ -5,7 +5,13 @@ import { site } from '../content/site';
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
-      <a class="site-logo" href="/">{site.name}</a>
+      <a class="site-logo" href="/">
+        <picture>
+          <source srcset="/logo-512.webp" type="image/webp" />
+          <img src="/logo-512.png" width="28" height="28" alt="" aria-hidden="true" />
+        </picture>
+        <span>{site.name}</span>
+      </a>
       <p>Спокойный способ помнить о регулярно заканчивающихся вещах.</p>
     </div>
 

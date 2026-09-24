@@ -122,9 +122,23 @@ summary {
 }
 
 .site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   text-decoration: none;
+}
+
+.site-logo img {
+  border-radius: 0.5rem;
+}
+
+/* На самых узких экранах в шапке остаётся только значок — иначе ряд не помещается */
+@media (max-width: 22rem) {
+  .site-header .site-logo span {
+    display: none;
+  }
 }
 
 .site-nav {
