@@ -67,7 +67,7 @@ export const screenshots: Screenshot[] = [
     webpSrc: '/images/purchases.webp',
     alt: 'Экран «Покупки»: список покупок по категориям «Еда» и «Дом» с отметкой «Куплено»',
     width: 1170,
-    height: 2532,
+    height: 2382,
   },
   {
     id: 'kits',
