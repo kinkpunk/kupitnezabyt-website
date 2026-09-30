@@ -465,9 +465,21 @@ summary {
   display: flex;
   min-height: 2.75rem;
   align-items: center;
+  gap: 0.625rem;
   padding: 0.75rem 1.25rem;
   cursor: pointer;
   font-weight: 700;
+}
+
+.faq__chevron {
+  display: inline-flex;
+  flex: none;
+  color: var(--color-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.faq__item[open] .faq__chevron {
+  transform: rotate(90deg);
 }
 
 .faq__answer {
@@ -583,5 +595,9 @@ summary {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .faq__chevron {
+    transition: none;
   }
 }
